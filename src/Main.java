@@ -27,15 +27,14 @@ public class Main {
     }
     public static int binarySearch(ArrayList<Integer> array , int left , int right , int value){
         int middle = (left+right)/2;
-        while (left<right){
             if (array.get(middle) ==value){
                 return middle;
             }else if (array.get(middle) >value)  {
-                left = middle +1;
+               return binarySearch( array,left,middle-1,value);
             }else if (array.get(middle) <value){
-                right = middle - 1 ;
+               return binarySearch(array,middle+1,right,value);
             }
+        return -1;
         }
-        return  -1;
-    }
+
 }
